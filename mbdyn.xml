@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ====================================================================
+  MBDyn syntax highlighting file for the KDE editors Kate and Kwrite.
+  The file is still in development, since many keywords are missing.
+  Maybe it is fragile, I just tested it with simple input files,
+  since I am not a power user of MBDyn, yet.
+  ====================================================================
+-->
+  
+ <!--
+  ====================================================================
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation (version 2 of the License).
+ 
+  This file is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+
+  AUTHOR: Pietro D'Antuono <pietro.dantuono@mail.polimi.it>
+        Copyright (C) 2016 all rights reserved.
+  ====================================================================
+-->
+
+<!DOCTYPE language SYSTEM "language.dtd">
+
+<language name="MBDyn" section="Scientific" version="1.0" kateversion="3.5" extensions="*.mbd;*.mbdyn; *.nod; *.elm" casesensitive="1" priority="0" license="GNU (GPL-2.0)" author="Pietro D'Antuono">
+
+		<highlighting>
+    
+				<list name="block_begin">
+						<item> begin </item>
+				</list>
+				<!--<list name="block_ref">
+						<item> reference </item>
+						<item> set </item>
+					</list>-->
+				<!--<list name="block_bodies">
+						<item> beam </item>
+						<item> body </item>
+						<item> gravity </item>
+						<item> joint </item>
+						<item> structural </item>
+				</list>-->
+				<list name="block_end">
+						<item> end </item>
+				</list>
+        
+				<list name="math_types">
+						<item> bool </item>
+						<item> const </item>
+						<item> cos </item>
+						<item> cosine </item>
+						<item> deg2rad </item>
+						<item> diag </item>
+						<item> double </item>
+						<item> eye </item>
+						<item> forever </item>
+						<item> half </item>
+						<item> int </item>
+						<item> integer </item>
+						<item> null </item>
+						<item> pi </item>
+						<item> ramp </item>
+						<item> real </item>
+						<item> sin </item>
+						<item> sine </item>
+						<item> sin </item>
+						<item> sqrt </item>
+						<item> sramp </item>
+						<item> step </item>
+						<item> uniform </item>
+				</list>
+        
+				<list name="other_types">
+						<item> aerodynamic </item>
+						<item> control </item>
+						<item> data </item>
+						<item> elements </item>
+						<item> nodes </item>
+				</list>
+				
+				<list name="reference_types">
+						<item> reference </item>
+						<item> set </item>
+						<item> element </item>
+						<item> node </item>
+				</list>
+				
+				<list name="global_types">
+						<item> absolute </item>
+						<item> active </item>
+						<item> amplitude </item>
+						<item> angular </item>
+						<item> array </item>
+						<item> constraint </item>
+						<item> curr_elem </item>
+						<item> dynamic </item>
+						<item> elastic </item>
+						<item> final_time </item>
+						<item> follower </item>
+						<item> frequency </item>
+						<item> generic </item>
+						<item> global </item>
+						<item> inactive </item>
+						<item> initial_time </item>
+						<item> initial_value </item>
+						<item> linear </item>
+						<item> linear </item>
+						<item> node </item>
+						<item> orientation </item>
+						<item> position </item>
+						<item> rotation </item>
+						<item> same </item>
+						<item> static </item>
+						<item> velocity </item>
+				</list>
+        
+			<contexts>
+
+						<context name="_normal" attribute="Normal" lineEndContext="#stay">
+
+								<DetectSpaces />
+						<!-- Blocks -->
+								<keyword context="#stay" attribute="Keyword" String="block_begin" beginRegion="block" />
+								<!--<keyword context="#stay" attribute="RefKeyword" String="block_ref" firstNonSpace="true"/>-->
+								<keyword context="#stay" attribute="Keyword" String="block_end"/>
+								<keyword context="#stay" attribute="RefKeyword" String="reference_types"/>
+								<keyword context="#stay" attribute="GlobalKeyword" String="global_types"/>
+								<!--<keyword context="#stay" attribute="ProblemDefinition" String="block_bodies" beginRegion="block"/>-->
+								<keyword context="#stay" attribute="MathTypes" String="math_types"/>
+								<keyword context="#stay" attribute="OtherTypes" String="other_types"/>
+								
+							<!--<WordDetect context="#stay" attribute="OtherTypes" String="nodes" />-->
+								
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="air properties" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="structural nodes" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="gravity" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="beam" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="body" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="force" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="gravity" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="joint" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="structural" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="problem" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="initial time" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="final time" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="time step" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="derivatives" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="max iterations" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="tolerance" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="coefficient" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="output" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="rigid bodies" />
+								<WordDetect context="#stay" attribute="ProblemDefinition" String="joints" />
+								
+								<WordDetect context="#stay" attribute="OtherTypes" String="initial value" />
+								
+								<WordDetect context="#stay" attribute="MathTypes" String="iterations" />
+								<WordDetect context="#stay" attribute="MathTypes" String="residual" />
+								<WordDetect context="#stay" attribute="MathTypes" String="solution" />
+								
+								<WordDetect context="#stay" attribute="RefTypes" String="reference:" />
+								<WordDetect context="#stay" attribute="RefTypes" String="set:" />
+								
+								<WordDetect context="#stay" attribute="Include" String="include" />
+								
+								<WordDetect context="#stay" attribute="Joints" String="clamp" />
+								<WordDetect context="#stay" attribute="Joints" String="total joint" />
+								<WordDetect context="#stay" attribute="Joints" String="total pin joint" />
+								<WordDetect context="#stay" attribute="Joints" String="universal pin" />
+								<WordDetect context="#stay" attribute="Joints" String="cardano pin" />
+								<WordDetect context="#stay" attribute="Joints" String="imposed displacement pin" />
+								<WordDetect context="#stay" attribute="Joints" String="spherical pin" />
+								<WordDetect context="#stay" attribute="Joints" String="revolute pin" />
+								<WordDetect context="#stay" attribute="Joints" String="deformable displacement joint" />
+								<WordDetect context="#stay" attribute="Joints" String="screw joint" />
+								<WordDetect context="#stay" attribute="Joints" String="joint regularizations" />
+								<WordDetect context="#stay" attribute="Joints" String="joint regularization" />
+								<WordDetect context="#stay" attribute="Joints" String="deformable axial joint" />
+								<WordDetect context="#stay" attribute="Joints" String="hinge" />
+								<WordDetect context="#stay" attribute="Joints" String="revolute hinge" />
+								<WordDetect context="#stay" attribute="Joints" String="simple plane hinge" />
+								<WordDetect context="#stay" attribute="Joints" String="spherical hinge" />
+								<WordDetect context="#stay" attribute="Joints" String="univeral hinge" />
+								<WordDetect context="#stay" attribute="Joints" String="cardano hinge" />
+								<WordDetect context="#stay" attribute="Joints" String="deformable hinge" />
+								<!--TO BE CONTINUED!!!-->
+								
+								<Float attribute="Float" />
+								<Int attribute="Int" />
+						
+								<DetectChar attribute="String" context="String" char="&quot;" />
+								<DetectChar attribute="Comment" context="Line Comment" char="#" />
+								<Detect2Chars attribute="Comment" context="Multi Line Comment" char="/" char1="*" />
+								<AnyChar context="#stay" attribute="Operator" String="*+-/\&amp;|&lt;&gt;~^=,;:@" />
+								<AnyChar context="#stay" attribute="Delimiter" String="()[]{}"/>
+<!-- 								<DetectIentifier context="#stay" attribute="Caps" char="[A-Z0-9_]\w*" /> -->
+								<AnyChar context="#stay" attribute="CapsTypes" String="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z _ 1 2 3 4 5 6 7 8 9 0" />
+							<!-- <RegExpr attribute="MultipleKeywords" context="#stay" String="(structural nodes|initial time|final time|time step|max iterations|tolerance|derivatives coefficient)[\s\n\r]*:"/>-->
+								
+						</context>
+						
+						<context name="String" attribute="String" lineEndContext="#stay">
+							<DetectChar attribute="String" context="#pop" char="&quot;"/>
+						</context>
+						
+						<context name="Line Comment" attribute="Comment" lineEndContext="#pop">
+								<RegExpr String="(FIXME|NOTE|TODO):?" attribute="Alert" context="#stay" />
+								<RegExpr String="(@{|@}):?" attribute="Comment Braces" context="#stay" />
+						</context>
+						
+						<context name="Multi Line Comment" attribute="Comment" lineEndContext="#stay" >
+								<Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" />
+								<RegExpr String="(FIXME|NOTE|TODO):?" attribute="Alert" context="#stay" />
+								<RegExpr String="(@{|@}):?" attribute="Comment Braces" context="#stay" />
+						</context>
+						
+				</contexts>
+
+				<itemDatas>
+					<itemData name="Alert" defStyleNum="dsAlert" spellchecking= "false"/>
+					<itemData name="CapsTypes" defStyleNum="dsOthers" color= "#000088"/>
+					<itemData name="Comment" defStyleNum="dsComment"/>
+					<itemData name="Delimiter" defStyleNum="dsNormal"/>
+					<itemData name="Float" defStyleNum="dsFloat" />
+					<itemData name="GlobalKeyword" defStyleNum="dsOthers" bold="1" color="#33ffff"/>
+					<itemData name="Include" defStyleNum="dsString" bold="1"/>
+					<itemData name="Int" defStyleNum="dsDecVal" />
+					<itemData name="Joints" defStyleNum="dsString" bold="1"/>
+					<itemData name="Keyword" defStyleNum="dsKeyword" bold="1" color="#3300aa"/>
+					<itemData name="Line Comment" defStyleNum="dsComment" />
+					<itemData name="MathTypes" defStyleNum="dsFunction"/>
+					<itemData name="Normal" defStyleNum="dsNormal" />
+					<itemData name="Operator" defStyleNum="dsNormal"/>
+					<itemData name="OtherTypes" defStyleNum="dsOthers" bold="1" color="#ff0000"/>
+					<itemData name="RefTypes" defStyleNum="dsOthers" bold="1" color= "#80ff00"/>
+					<itemData name="String" defStyleNum="dsString" bold="1"/>
+					<itemData name="ProblemDefinition" defStyleNum="dsAnnotation" bold="1" color="#ffff00"/>
+					<itemData name="RefKeyword" defStyleNum="dsOthers" bold="1"/>
+					<itemData name="Comment Braces" defStyleNum="dsRegionMarker" bold="1"/>
+					<!--<itemData name="MultipleKeywords" defStyleNum="dsOthers" bold="1" color="fb8a12"/>-->
+			</itemDatas>
+
+		</highlighting>
+
+</language>
